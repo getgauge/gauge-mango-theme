@@ -1,0 +1,101 @@
+.sidebar{
+  background: $primary-col1;
+  color: $whiteCol;
+  margin-bottom: 48px;
+  position: static;
+  width: 100%;
+  float: none;
+  @media screen and (min-width: 1024px){
+    width: 350px;
+    position: absolute;
+    top: 64px;
+    bottom: 36px;
+    margin-bottom: 0px;
+  }
+}
+.searchbar, .filter{
+  margin: 10px 20px;
+}
+.searchbar{
+  text-align: center;
+  position: relative;
+  color: $whiteCol;
+  input{
+      padding: 5px;
+      border: 1px solid $greyCol2;
+      background: $greyCol1;
+      border-radius: 5px;
+      width: 100%;
+      padding-right: 20px;
+  }
+  i{
+    position: absolute;
+    right: 10px;
+    color: $greyCol2;
+    top: 8px;
+  }
+}
+.filter{
+  display: flex;
+  color: $blackCol;
+  button{
+    width: 25%;
+    margin: 0;
+    border-width: 1px;
+    border-style: solid;
+    position: relative;
+    &:hover{
+      opacity: 0.8;
+    }
+    &:active, &:focus {
+      border: none;
+      outline: 0;
+    }
+    &:first-child{
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    &:last-child{
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
+#listOfSpecifications{
+  width: 100%;
+  @media screen and (min-width: 1024px){
+    position: absolute;
+    top: 70px;
+    bottom: 0px;
+    left: 0px;
+    border-width: 5px;
+    top:100px;
+    overflow-y: auto;
+  }
+}
+.spec-list{
+  margin: 0;
+  padding: 0;
+  li{
+    list-style: none;
+    border-bottom: 1px solid $greyCol1;
+  }
+  a{
+    color: $whiteCol;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+  }
+  .passed{
+    border-left: 5px solid $positive-col;
+  }
+  .failed{
+    border-left: 5px solid $negative-col;
+  }
+  .skipped{
+    border-left: 5px solid $greyCol2;
+  }
+  .time{
+    float: right;
+  }
+}

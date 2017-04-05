@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    background: $bodyBG;
+  	line-height: 1em;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 10px 0;
+}
+pre{
+  overflow: visible;
+}
+
+.passedBG, .green{
+  background: $positive-col;
+  border-color: $positive-col;
+  fill: $positive-col;
+}
+.failedBG, .red{
+  background: $negative-col;
+  border-color: $negative-col;
+  fill: $negative-col;
+}
+.allBG{
+  background: $whiteCol;
+  border-color: $whiteCol;
+}
+.skippedBG{
+  background: $greyCol2;
+  border-color: $greyCol2;
+  fill: $greyCol2;
+}
+.greentxt{
+  color: $positive-col;
+}
+.redtxt{
+  color: $negative-col;
+}
+.greytxt{
+  color: $greyCol2;
+}
+
+.shadow{
+  opacity: 0.5;
+}
+.active:after{
+  width: 0;
+  height: 0;
+  border-color: inherit;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: " ";
+  border-top-width: 5px;
+  border-top-style: solid;
+  position: absolute;
+  bottom: -6px;
+  left: calc(50% - 5px);
+}
+.text_center{
+  text-align: center;
+}
+.box{
+  background: #FFF;
+  padding: 10px;
+  margin: 10px 0;
+  @media screen and (min-width: 1024px){
+      width: calc(50% - 6px);
+      display: inline-flex;
+      min-height: 180px;
+      vertical-align: top;
+      margin-right: 6px;
+      align-items: center;
+  }
+  &:last-child{
+    margin-right: 0;
+  }
+}
+.errored {
+    background-color: $errorBG;
+}

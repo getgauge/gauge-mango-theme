@@ -1,0 +1,261 @@
+.report, .spec{
+  position: static;
+  width: 100%;
+  float: none;
+  left: 350px;
+  padding: 10px;
+  @media screen and (min-width: 1024px){
+    width: calc(100% - 350px);
+    float: right;
+    overflow: auto;
+    position: absolute;
+    top: 64px;
+    bottom: 38px;
+    margin-bottom: 0px;
+    .report_chart{
+      width: 50%;
+    }
+    .inline_block_desktop{
+      display: inline-block;
+    }
+  }
+}
+
+.report_test-results, .report_details {
+  ul{
+    list-style: none;
+    padding: 0;
+    width: 50%;
+    margin: 10px auto;
+    @media screen and (min-width: 1024px){
+      width: 100%;
+    }
+  }
+  li{
+    border-bottom: 1px dotted $greyCol2;
+    line-height: 1.5em;
+    label{
+      width: 60%;
+      display: inline-block;
+    }
+  }
+}
+.spec{
+  padding: 0px;
+  input, .clipboard-btn{
+    padding: 5px;
+    border: 1px solid $greyCol2;
+    background: $greyCol1;
+    border-radius: 5px;
+  }
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+.curr-spec{
+  padding: 10px;
+  margin-bottom: 0px;
+  background: $primary-col1;
+  color: $whiteCol;
+  li, li label{
+    display: inline-block;
+    margin-right: 10px;
+    &:last-child{
+      margin-right: 0px;
+    }
+  }
+}
+#specItemsContainer{
+  padding: 10px 20px;
+  margin-bottom: 48px;
+}
+.spec_test_results{
+  display: inline-block;
+  float: right;
+}
+
+.specTime{
+  line-height: 32px;
+}
+
+.scenario-container {
+  margin: 20px 0;
+  position: relative;
+  padding-bottom: 1px;
+  &.passed, &.failed, &.skipped{
+    position: relative;
+    &:before {
+        content: "";
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: $positive-col;
+        display: block;
+        position: absolute;
+    }
+  }
+  &.failed {
+    &:before{
+      background: $negative-col;
+    }
+  }
+  &.skipped {
+    &:before{
+      background: $greyCol2;
+    }
+  }
+  .step{
+    .passed, .failed, .skipped{
+      position: relative;
+      &:before {
+        content: "";
+        width: 5px;
+        height: 100%;
+        background: $positive-col;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+    .failed{
+      &:before{
+        background: $negative-col;
+      }
+    }
+    .not-executed{
+      &:before{
+        background: $greyCol2;
+      }
+    }
+    li{
+      padding: 10px 20px;
+      border: 1px solid $greyCol2;
+      margin-bottom: 10px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      &:first-child {
+          margin-top: 10px;
+      }
+    }
+    &.context li {
+        border: 1px dashed $greyCol2;
+    }
+  }
+  .context-step li {
+      font-style: italic;
+      border: 1px dashed $greyCol2;
+  }
+  .scenario-head {
+    margin-left: 40px;
+    margin-bottom: 20px;
+      .head {
+      	  margin: 0px;
+          margin-bottom: 10px;
+          display: inline-block;
+      }
+      .time {
+          display: inline-block;
+          font-size: 0.8em;
+          color: $greytxt;
+      }
+      .tags {
+          margin: 0 0 10px 0;
+      }
+    }
+}
+
+#specificationContainer h2 {
+    margin-bottom: 10px;
+}
+.concept-steps {
+    border-left: 2px dashed $greyCol2;
+    padding-left: 20px;
+    display: none;
+}
+
+.execution-time {
+    margin: 10px 0 5px 0;
+    color: $greytxt;
+    font-style: italic;
+}
+.step-info {
+    margin-bottom: 25px;
+}
+@media screen and (min-width: 1024px){
+  .inline_block_desktop{
+    display: inline-block;
+  }
+}
+
+
+.details {
+  table, .data-table {
+    border-collapse: collapse;
+    border: 1px solid $greyCol2;
+    border-bottom: 0;
+    border-right: 0;
+    min-width: 25%;
+  }
+  td, th{
+    border-bottom: 1px solid $greyCol2;
+    border-right: 1px solid $greyCol2;
+    padding: 10px;
+  }
+  th {
+    background: $greyCol2;
+  }
+}
+
+
+
+.modal-link {
+    color: $primary-col1;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: auto;
+    background-color: $whiteCol;
+}
+
+.modal-title {
+    background: $greyCol2;
+    margin: 0 0 20px 0;
+    padding: 15px 20px;
+    font-size: 16px;
+}
+
+.close {
+    color: $greyCol1;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    font-size: 40px;
+    line-height: 30px;
+    top: 10px;
+    &:hover,
+    &:focus {
+    color: $blackCol;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+.modal-content {
+    padding: 0 30px 20px 30px;
+    overflow: scroll;
+    width: 100%;
+    height: 100%;
+}
