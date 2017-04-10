@@ -1,5 +1,6 @@
 .sidebar{
-  background: $primary-col1;
+  background: transparent linear-gradient(to top,#3B3B3B, $primary-col1) top left no-repeat;
+
   color: $whiteCol;
   margin-bottom: 48px;
   position: static;

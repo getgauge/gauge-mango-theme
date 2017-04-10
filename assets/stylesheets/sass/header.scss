@@ -9,12 +9,42 @@
   padding: 10px;
 }
 .logo{
+  img {
+    width: 120px;
+  }
     @media screen and (min-width: 1024px){
       width: 350px;
     }
 }
-.project{
+.project {
+      margin: 0;
+      font-size: 23px;
+      line-height: 1;
+      font-weight: 500;
+      text-transform: uppercase;
     @media screen and (min-width: 1024px){
       width: calc(100% - 355px);
     }
+}
+
+@media screen and (max-width: 1023px) {
+  .header {
+    background: none;
+    .logo {
+      background: $headerBG;
+      margin: 0;
+      height: 46px;
+      padding: 12px;
+      img {
+        height: 24px;
+      }
+    }
+    .project {
+      background: $primary-col1;
+      color: #fff;
+      padding: 15px 12px;
+      height: 46px;
+      font-size: 15px;
+    }
+  }
 }

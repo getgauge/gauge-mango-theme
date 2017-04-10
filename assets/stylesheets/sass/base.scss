@@ -11,8 +11,11 @@ body {
     margin: 0;
     padding: 0;
     outline: 0;
-    background: $bodyBG;
+    background: $whiteCol;
   	line-height: 1em;
+    @media screen and (min-width: 1024px) {
+      background: $bodyBG;
+    }
 }
 h1,h2,h3,h4,h5,h6{
   margin: 10px 0;
@@ -69,20 +72,24 @@ pre{
 .text_center{
   text-align: center;
 }
+.box-container {
+  @media screen and (min-width: 1024px){
+      display: flex;
+      justify-content: space-between;
+  }
+}
 .box{
   background: #FFF;
   padding: 10px;
   margin: 10px 0;
   @media screen and (min-width: 1024px){
-      width: calc(50% - 6px);
-      display: inline-flex;
+      width: 50%;
       min-height: 180px;
       vertical-align: top;
-      margin-right: 6px;
-      align-items: center;
+      max-width: 510px;
   }
   &:last-child{
-    margin-right: 0;
+    margin-left: 15px;
   }
 }
 .errored {

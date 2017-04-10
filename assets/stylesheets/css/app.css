@@ -11,8 +11,11 @@ body {
   margin: 0;
   padding: 0;
   outline: 0;
-  background: #ebebeb;
+  background: #ffffff;
   line-height: 1em; }
+  @media screen and (min-width: 1024px) {
+    body {
+      background: #ebebeb; } }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0; }
@@ -21,14 +24,14 @@ pre {
   overflow: visible; }
 
 .passedBG, .green {
-  background: #66cbac;
-  border-color: #66cbac;
-  fill: #66cbac; }
+  background: #5DC8A7;
+  border-color: #5DC8A7;
+  fill: #5DC8A7; }
 
 .failedBG, .red {
-  background: #d9534f;
-  border-color: #d9534f;
-  fill: #d9534f; }
+  background: #D74945;
+  border-color: #D74945;
+  fill: #D74945; }
 
 .allBG {
   background: #ffffff;
@@ -40,10 +43,10 @@ pre {
   fill: #cccccc; }
 
 .greentxt {
-  color: #66cbac; }
+  color: #5DC8A7; }
 
 .redtxt {
-  color: #d9534f; }
+  color: #D74945; }
 
 .greytxt {
   color: #cccccc; }
@@ -67,26 +70,29 @@ pre {
 .text_center {
   text-align: center; }
 
+@media screen and (min-width: 1024px) {
+  .box-container {
+    display: flex;
+    justify-content: space-between; } }
+
 .box {
   background: #FFF;
   padding: 10px;
   margin: 10px 0; }
   @media screen and (min-width: 1024px) {
     .box {
-      width: calc(50% - 6px);
-      display: inline-flex;
+      width: 50%;
       min-height: 180px;
       vertical-align: top;
-      margin-right: 6px;
-      align-items: center; } }
+      max-width: 510px; } }
   .box:last-child {
-    margin-right: 0; }
+    margin-left: 15px; }
 
 .errored {
   background-color: #ffda8b; }
 
 .header {
-  background: #ecc31c; }
+  background: #EDC300; }
 
 .logo, .project {
   width: 100%;
@@ -94,16 +100,42 @@ pre {
   vertical-align: middle;
   padding: 10px; }
 
+.logo img {
+  width: 120px; }
+
 @media screen and (min-width: 1024px) {
   .logo {
     width: 350px; } }
 
-@media screen and (min-width: 1024px) {
-  .project {
-    width: calc(100% - 355px); } }
+.project {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 500;
+  text-transform: uppercase; }
+  @media screen and (min-width: 1024px) {
+    .project {
+      width: calc(100% - 355px); } }
+
+@media screen and (max-width: 1023px) {
+  .header {
+    background: none; }
+    .header .logo {
+      background: #EDC300;
+      margin: 0;
+      height: 46px;
+      padding: 12px; }
+      .header .logo img {
+        height: 24px; }
+    .header .project {
+      background: #3B224D;
+      color: #fff;
+      padding: 15px 12px;
+      height: 46px;
+      font-size: 15px; } }
 
 .sidebar {
-  background: #3b234c;
+  background: transparent linear-gradient(to top, #3B3B3B, #3B224D) top left no-repeat;
   color: #ffffff;
   margin-bottom: 48px;
   position: static;
@@ -182,9 +214,9 @@ pre {
     padding: 10px 20px;
     display: block; }
   .spec-list .passed {
-    border-left: 5px solid #66cbac; }
+    border-left: 5px solid #5DC8A7; }
   .spec-list .failed {
-    border-left: 5px solid #d9534f; }
+    border-left: 5px solid #D74945; }
   .spec-list .skipped {
     border-left: 5px solid #cccccc; }
   .spec-list .time {
@@ -250,7 +282,7 @@ pre {
 .curr-spec {
   padding: 10px;
   margin-bottom: 0px;
-  background: #3b234c;
+  background: #3B224D;
   color: #ffffff; }
   .curr-spec li, .curr-spec li label {
     display: inline-block;
@@ -280,11 +312,11 @@ pre {
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      background: #66cbac;
+      background: #5DC8A7;
       display: block;
       position: absolute; }
   .scenario-container.failed:before {
-    background: #d9534f; }
+    background: #D74945; }
   .scenario-container.skipped:before {
     background: #cccccc; }
   .scenario-container .step .passed, .scenario-container .step .failed, .scenario-container .step .skipped {
@@ -293,12 +325,12 @@ pre {
       content: "";
       width: 5px;
       height: 100%;
-      background: #66cbac;
+      background: #5DC8A7;
       position: absolute;
       left: 0;
       top: 0; }
   .scenario-container .step .failed:before {
-    background: #d9534f; }
+    background: #D74945; }
   .scenario-container .step .not-executed:before {
     background: #cccccc; }
   .scenario-container .step li {
@@ -364,7 +396,7 @@ pre {
   background: #cccccc; }
 
 .modal-link {
-  color: #3b234c;
+  color: #3B224D;
   font-weight: bold;
   cursor: pointer; }
 
@@ -403,6 +435,27 @@ pre {
   overflow: scroll;
   width: 100%;
   height: 100%; }
+
+.congratulations {
+  font-size: 18px;
+  text-align: center;
+  max-width: 375px;
+  margin: 10px auto;
+  line-height: 1.5;
+  color: #4a4a4a;
+  font-weight: 300;
+  padding: 0 20px; }
+  .congratulations .green {
+    display: inline-block;
+    padding: 5px 10px;
+    line-height: 1;
+    color: #ffffff; }
+  @media screen and (min-width: 1024px) {
+    .congratulations {
+      font-weight: 500;
+      max-width: 100%;
+      padding: 0;
+      text-align: left; } }
 
 .autocomplete-suggestions {
   text-align: left;
