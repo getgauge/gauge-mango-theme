@@ -204,7 +204,6 @@ pre {
     .filter button:hover {
       opacity: 0.8; }
     .filter button:active, .filter button:focus {
-      border: none;
       outline: 0; }
     .filter button:first-child {
       border-top-left-radius: 5px;
@@ -230,12 +229,6 @@ pre {
   width: 100%; }
   @media screen and (min-width: 1024px) {
     #listOfSpecifications {
-      position: absolute;
-      top: 70px;
-      bottom: 0px;
-      left: 0px;
-      border-width: 5px;
-      top: 100px;
       overflow-y: auto; } }
 
 .spec-list {
@@ -258,6 +251,39 @@ pre {
     border-left: 5px solid #cccccc; }
   .spec-list .time {
     float: right; }
+
+.searchFilterContainer {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 15px 20px 5px; }
+  .searchFilterContainer .searchFilterBtn {
+    background: #EDC300;
+    color: #000000;
+    border: 0;
+    padding: 5px 10px; }
+    .searchFilterContainer .searchFilterBtn:hover, .searchFilterContainer .searchFilterBtn:focus {
+      background: #d4ae00; }
+    .searchFilterContainer .searchFilterBtn i {
+      margin-right: 5px; }
+  .searchFilterContainer .dropdownWrapper {
+    position: relative;
+    background: rgba(131, 131, 131, 0.33);
+    display: inline-block; }
+    .searchFilterContainer .dropdownWrapper:hover, .searchFilterContainer .dropdownWrapper:focus {
+      background: rgba(131, 131, 131, 0.5); }
+    .searchFilterContainer .dropdownWrapper select {
+      width: 100%;
+      -webkit-appearance: none;
+      background: none;
+      border: 0;
+      padding: 5px 35px 5px 10px; }
+    .searchFilterContainer .dropdownWrapper i {
+      position: absolute;
+      z-index: 1;
+      top: 5px;
+      right: 10px; }
 
 .footer {
   text-align: center;
