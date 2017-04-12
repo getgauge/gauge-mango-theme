@@ -22,6 +22,10 @@ gulp.task('js', function(){
 gulp.task('css', function(){
   gulp.src('assets/stylesheets/sass/app.scss')
       .pipe(plugins.sass())
+      .pipe(plugins.autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
       .pipe(gulp.dest('assets/stylesheets/css'))
       .pipe(plugins.concat('app.css'))
       .pipe(gulp.dest('assets/stylesheets/css'))

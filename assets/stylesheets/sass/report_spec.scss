@@ -3,7 +3,6 @@
   width: 100%;
   float: none;
   left: 350px;
-  padding: 10px;
   @media screen and (min-width: 1024px){
     width: calc(100% - 350px);
     float: right;
@@ -12,6 +11,9 @@
     top: 64px;
     bottom: 38px;
     margin-bottom: 0px;
+    padding-left: 22px;
+    padding-right: 22px;
+
     .report_chart{
       width: 50%;
     }
@@ -19,13 +21,24 @@
       display: inline-block;
     }
   }
+   @media screen and (min-width: 1440px){
+    padding-left: 44px;
+   }
 }
-
+.report-results {
+  display: flex;
+  flex-direction: column;
+  .report_test-results {
+    width: 100%;
+  }
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+  }
+}
 .report_test-results, .report_details {
   ul{
     list-style: none;
     padding: 0;
-    width: 50%;
     margin: 10px auto;
     @media screen and (min-width: 1024px){
       width: 100%;
@@ -33,13 +46,16 @@
   }
   li{
     border-bottom: 1px dotted $greyCol2;
-    line-height: 1.5em;
+    font-size: 14px;
+    line-height: 2;
     label{
       width: 60%;
       display: inline-block;
+      font-weight: 500;
     }
   }
 }
+
 .spec{
   padding: 0px;
   input, .clipboard-btn{
@@ -72,6 +88,7 @@
 #specItemsContainer{
   padding: 10px 20px;
   margin-bottom: 48px;
+  background: $whiteCol;
 }
 .spec_test_results{
   display: inline-block;
@@ -283,4 +300,10 @@
       padding: 0;
       text-align: left;
     }
+}
+
+.chart {
+  svg {
+    width: 200px;
+  }
 }

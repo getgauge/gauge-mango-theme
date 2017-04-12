@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "~2.2.0",
     "gulp-handlebars-html": "0.0.2",
