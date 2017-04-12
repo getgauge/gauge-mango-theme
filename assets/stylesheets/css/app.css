@@ -389,7 +389,7 @@ pre {
   .scenario-container .step .not-executed:before {
     background: #cccccc; }
   .scenario-container .step li {
-    padding: 10px 20px;
+    padding: 8px;
     border: 1px solid #cccccc;
     margin-bottom: 10px; }
     .scenario-container .step li:last-child {
@@ -449,6 +449,31 @@ pre {
 
 .details th {
   background: #cccccc; }
+
+.data-table tr.passed td {
+  background-color: #27CAA9; }
+
+.data-table tr.failed td {
+  background-color: #E73E48;
+  color: #ffffff; }
+
+.data-table tr.skipped td {
+  background-color: #999999;
+  color: #000000; }
+
+.data-table tr.selected td {
+  opacity: 1; }
+
+.data-table tr.selected td:first-child {
+  border-left: 4px solid #0085C9; }
+
+.data-table tr:hover td {
+  opacity: 0.9; }
+
+.inline-table {
+  margin: 10px 0px; }
+  .inline-table td {
+    background-color: #fff; }
 
 .modal-link {
   color: #3B224D;
