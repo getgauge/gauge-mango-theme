@@ -1,7 +1,36 @@
 .header{
   background: $headerBG;
+  position: relative;
   @media screen and (min-width: 1024px){
     height: 64px;
+  }
+  .menu {
+    display: none;
+    border: 0;
+    color: $blackCol;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    padding: 0;
+    i {
+      display: none;
+    }
+    @media screen and (max-width: 1023px){
+      display: inline-block;
+      .fa-bars {
+        display: inline-block;
+      }
+      &.is-active {
+        .fa-bars {
+          display: none;
+        }
+        .fa-close {
+          display: inline-block;
+        }
+      }
+    }
   }
 }
 
