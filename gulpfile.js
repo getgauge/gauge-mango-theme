@@ -77,4 +77,4 @@ gulp.task('watch', function(){
 });
 
 gulp.task('publish', ['minify']);
-gulp.task('default', ['js', 'css', 'generateHTML']);
+gulp.task('default', ['js', 'css', 'generateHTML','copyOtherAssets']);

@@ -315,18 +315,17 @@
 }
 
 .congratulations {
-    font-size: 18px;
     text-align: center;
     max-width: 375px;
-    margin: 10px auto;
+    margin: 40px auto 10px;
     line-height: 1.5;
-    color: $grey1;
     font-weight: 300;
     padding: 0 20px;
 
     .green {
       display: inline-block;
-      padding: 5px 10px;
+      padding: 8px 10px;
+      border-radius: 3px;
       line-height: 1;
       color: $whiteCol;
     }

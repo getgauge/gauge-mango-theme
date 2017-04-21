@@ -6,14 +6,14 @@ html, body {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   margin: 0;
   padding: 0;
   outline: 0;
   background: #ffffff;
   line-height: 1em;
-  color: #4a4a4a; }
+  color: #5c5b5c; }
   @media screen and (min-width: 1024px) {
     body {
       background: #ebebeb; } }
@@ -58,14 +58,15 @@ pre {
 .text_center {
   text-align: center; }
 
-.report-overview h3 {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 500; }
-
-@media screen and (min-width: 1024px) {
+.report-overview {
+  margin-top: 50px; }
   .report-overview h3 {
-    text-align: left; } }
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 5px; }
+  @media screen and (min-width: 1024px) {
+    .report-overview h3 {
+      text-align: left; } }
 
 @media screen and (min-width: 1200px) {
   .box-container {
@@ -93,6 +94,9 @@ pre {
 
 .errored {
   background-color: #ffda8b; }
+
+button {
+  border-radius: 3px; }
 
 .header {
   background: #EDC300;
@@ -165,6 +169,8 @@ pre {
 
 .sidebar {
   background: transparent linear-gradient(to top, #3B3B3B, #3B224D) top left no-repeat;
+  font-size: 10px;
+  font-weight: 300;
   color: #ffffff;
   margin-bottom: 48px;
   position: static;
@@ -178,31 +184,31 @@ pre {
       bottom: 36px;
       margin-bottom: 0px; } }
 
+.filtersSearch {
+  overflow: auto; }
+
 .searchbar, .filter {
-  margin: 10px 20px; }
+  margin: 10px 20px 15px; }
 
 .searchbar {
   text-align: center;
   position: relative;
   color: #ffffff; }
   .searchbar input {
-    padding: 5px;
+    padding: 7px 5px;
     border: 0;
     background: #848383;
-    border-radius: 5px;
+    border-radius: 3px;
     width: 100%;
     padding-right: 20px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5); }
     .searchbar input::-webkit-input-placeholder {
-      font-size: 13px;
       padding: 10px;
       color: #ffffff; }
     .searchbar input:-ms-input-placeholder {
-      font-size: 13px;
       padding: 10px;
       color: #ffffff; }
     .searchbar input::placeholder {
-      font-size: 13px;
       padding: 10px;
       color: #ffffff; }
   .searchbar i {
@@ -222,17 +228,19 @@ pre {
     border-style: solid;
     position: relative;
     padding: 5px 10px;
-    font-size: 14px; }
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: 400; }
     .filter button:hover {
       opacity: 0.8; }
     .filter button:active, .filter button:focus {
       outline: 0; }
     .filter button:first-child {
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px; }
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px; }
     .filter button:last-child {
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px; }
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px; }
     .filter button.active:after {
       width: 0;
       height: 0;
@@ -248,19 +256,19 @@ pre {
       transform: translateX(-50%); }
 
 #listOfSpecifications {
-  width: 100%; }
+  width: 100%;
+  font-size: 12px; }
   @media screen and (min-width: 1024px) {
     #listOfSpecifications {
       overflow-y: auto; } }
 
 .spec-list {
-  margin: 0;
+  margin: 15px 0 0;
   padding: 0; }
   .spec-list li {
     list-style: none;
     border-bottom: 1px solid #848383; }
   .spec-list a {
-    font-size: 16px;
     color: #ffffff;
     text-decoration: none;
     padding: 10px 20px;
@@ -279,33 +287,25 @@ pre {
   display: flex;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 15px 20px 5px; }
+  padding: 10px 20px 3px; }
   .searchFilterContainer .searchFilterBtn {
     background: #EDC300;
     color: #000000;
     border: 0;
-    padding: 5px 10px; }
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 5px 10px 5px 30px;
+    background: url(../images/sprite.png) no-repeat 8px 4px #EDC300; }
     .searchFilterContainer .searchFilterBtn:hover, .searchFilterContainer .searchFilterBtn:focus {
-      background: #d4ae00; }
+      background-color: #d4ae00; }
     .searchFilterContainer .searchFilterBtn i {
       margin-right: 5px; }
-  .searchFilterContainer .dropdownWrapper {
-    position: relative;
-    background: rgba(131, 131, 131, 0.33);
-    display: inline-block; }
-    .searchFilterContainer .dropdownWrapper:hover, .searchFilterContainer .dropdownWrapper:focus {
-      background: rgba(131, 131, 131, 0.5); }
-    .searchFilterContainer .dropdownWrapper select {
-      width: 100%;
-      -webkit-appearance: none;
-      background: none;
-      border: 0;
-      padding: 5px 35px 5px 10px; }
-    .searchFilterContainer .dropdownWrapper i {
-      position: absolute;
-      z-index: 1;
-      top: 5px;
-      right: 10px; }
+  .searchFilterContainer .searchInWrapper {
+    padding-top: 5px; }
+    .searchFilterContainer .searchInWrapper label {
+      margin-left: 10px; }
+      .searchFilterContainer .searchInWrapper label input {
+        margin-right: 3px; }
 
 .footer {
   text-align: center;
@@ -565,17 +565,16 @@ pre {
   height: 100%; }
 
 .congratulations {
-  font-size: 18px;
   text-align: center;
   max-width: 375px;
-  margin: 10px auto;
+  margin: 40px auto 10px;
   line-height: 1.5;
-  color: #4a4a4a;
   font-weight: 300;
   padding: 0 20px; }
   .congratulations .green {
     display: inline-block;
-    padding: 5px 10px;
+    padding: 8px 10px;
+    border-radius: 3px;
     line-height: 1;
     color: #ffffff; }
   @media screen and (min-width: 1024px) {
