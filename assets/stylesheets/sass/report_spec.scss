@@ -313,12 +313,16 @@
     position: fixed;
     z-index: 1;
     left: 0;
-    top: 64px;
+    top: 45px;
     width: 100%;
     height: calc(100% - 64px);
     cursor: auto;
     background-color: $whiteCol;
-}
+
+  @media screen and (min-width: 1024px) {
+    top: 64px;
+  }
+  }
 
 .modal-title {
     background: $greyCol2;
