@@ -467,6 +467,28 @@ button {
 #specificationContainer h2 {
   margin-bottom: 10px; }
 
+.concept .step-info:after {
+  content: "+";
+  width: 14px;
+  height: 14px;
+  text-align: center;
+  background: #000;
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 18px; }
+
+.concept .step-info li:first-child {
+  padding-left: 30px; }
+
+.concept.concept-open .step-info:after {
+  content: "-";
+  font-size: 26px;
+  line-height: 10px;
+  font-weight: normal; }
+
 .concept-steps {
   border-left: 2px dashed #cccccc;
   padding-left: 20px;

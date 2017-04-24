@@ -179,18 +179,15 @@ var initializers = {
     },
     "registerConceptToggle": function() {
         $('.concept').click(function() {
+            $(this).toggleClass("concept-open");
             var conceptSteps = $(this).next('.concept-steps');
-            var iconClass = $(conceptSteps).is(':visible') ? "plus" : "minus";
             $(conceptSteps).fadeToggle('fast', 'linear');
-            $(this).find("i.fa").removeClass("fa-minus-square").removeClass("fa-plus-square").addClass("fa-" + iconClass + "-square");
         });
     },
     "registerMessageToggle": function() {
         $('.message-container i.fa').click(function() {
             var messages = $(this).next('.messages');
-            var iconClass = messages.is(':visible') ? "plus" : "minus";
             messages.fadeToggle('fast', 'linear');
-            $(this).removeClass("fa-minus-square").removeClass("fa-plus-square").addClass("fa-" + iconClass + "-square");
         });
     },
     "registerErrorContainerToggle": function() {
