@@ -160,6 +160,23 @@ var initializers = {
         })
         $('.close').click(closeModal)
     },
+    "registerTree": function() {
+        $.jstree.defaults.core.themes.variant = "dark";
+        $('#jstree_demo_div').jstree({ 'core' : {
+            'data' : [
+                { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" },
+                { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
+                { "id" : "ajson21", "parent" : "ajson2", "text" : "Child 21" },
+                { "id" : "ajson3", "parent" : "#", "text" : "Root node 3" },
+                { "id" : "ajson31", "parent" : "ajson3", "text" : "Child 31" },
+                { "id" : "ajson311", "parent" : "ajson31", "text" : "Child 311" },
+                { "id" : "ajson4", "parent" : "#", "text" : "Root node 4" },
+                { "id" : "ajson5", "parent" : "#", "text" : "Root node 5" }
+            ]
+        } });
+
+
+    },
     "registerConceptToggle": function() {
         $('.concept').click(function() {
             var conceptSteps = $(this).next('.concept-steps');

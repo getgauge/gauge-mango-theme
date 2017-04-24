@@ -5,7 +5,15 @@
         <span>Search in : </span>
         <label><input type="checkbox">Global</label>
       </div>
-      <button class='searchFilterBtn'>Filter</button>
+      <button class='searchFilterBtn modal-link' id="searchfilter" >Filter</button>
+      <div class="modal">
+          <span class="close">X</span>
+          <div class="modal-notitle"></div>
+          <div class="modal-content">
+            <div id="tree1"></div>
+              <div id="jstree_demo_div"></div>
+          </div>
+      </div>
   </div>
   <div class="searchbar">
     <input id="searchSpecifications" placeholder="Type specification or tag name" type="text" />
