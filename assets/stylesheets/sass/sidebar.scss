@@ -7,12 +7,61 @@
   position: static;
   width: 100%;
   float: none;
+  display: none;
   @media screen and (min-width: 1024px){
+    display: block;
     width: 350px;
     position: absolute;
     top: 64px;
     bottom: 36px;
     margin-bottom: 0px;
+  }
+}
+
+.menu-is-active {
+  overflow: hidden;
+}
+
+.menu-is-active .sidebar {
+  display: block;
+  position: fixed;
+  top: 46px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  margin-bottom: 0;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+}
+
+@-webkit-keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 

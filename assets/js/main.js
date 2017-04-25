@@ -169,7 +169,9 @@ var initializers = {
                 { "id" : "ajson21", "parent" : "ajson2", "text" : "Child 21" },
                 { "id" : "ajson3", "parent" : "#", "text" : "Root node 3" },
                 { "id" : "ajson31", "parent" : "ajson3", "text" : "Child 31" },
+                { "id" : "ajson32", "parent" : "ajson3", "text" : "Child 32" },
                 { "id" : "ajson311", "parent" : "ajson31", "text" : "Child 311" },
+                { "id" : "ajson321", "parent" : "ajson32", "text" : "Child 321" },
                 { "id" : "ajson4", "parent" : "#", "text" : "Root node 4" },
                 { "id" : "ajson5", "parent" : "#", "text" : "Root node 5" }
             ]
@@ -243,6 +245,7 @@ var initializers = {
         new Clipboard('.clipboard-btn');
     },
     "drawPieChart": function() {
+        if($("#pie-chart").length){
         var results = $("#pie-chart").data("results").split(",").map(Number);
         var total = Number($("#pie-chart").data("total"));
         var paths = $("#pie-chart path.status")
@@ -257,9 +260,23 @@ var initializers = {
                 $(paths[i]).attr('stroke-width', 0);
             startAngle = coveredAngle;
         }
+        }
     }
 };
 
 $(function() {
     $.each(initializers, function(k, v) { v(); });
+
+    $('#menu-icon').click(function(){
+        $(this).toggleClass('open');
+        $("body").toggleClass('menu-is-active');
+    });
+
+    $( window ).resize(function() {
+        if($( window ).width() > 1024) {
+            $("body").removeClass('menu-is-active');
+            $("#menu-icon").removeClass('open');
+        }
+    })
+
 });
