@@ -713,7 +713,8 @@ button {
   margin: 0;
   padding: 0; }
   .crumbs li {
-    font-size: 11px; }
+    font-size: 11px;
+    margin-right: 5px; }
     .crumbs li a {
       color: #89d7f9;
       display: inline-block;
