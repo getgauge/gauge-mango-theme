@@ -36,25 +36,6 @@ gulp.task('css', function(){
       .pipe(gulp.dest('dist/assets/css'))
 })
 
-gulp.task('generateHTML', function(){
-  var handlebars = require('handlebars');
-  var gulpHandlebars = require('gulp-handlebars-html')(handlebars);
-
-  var templateData = {
-  },options = {
-        partialsDirectory : ['./templates/partials'],
-        allowedExtensions: (['hb', 'hbs', 'handlebars', 'html'])
-    };
-  gulp.src('templates/*.hbs')
-        .pipe(gulpHandlebars({}, options))
-        .pipe(plugins.rename({
-            extname: ".html"
-          }))
-        .pipe(gulp.dest('dist'));
-
-
-});
-
 gulp.task('copyOtherAssets', function(){
   gulp.src('assets/images/**/*.*')
     .pipe(gulp.dest('dist/assets/images'));
@@ -63,7 +44,7 @@ gulp.task('copyOtherAssets', function(){
 });
 
 gulp.task('minify', function(){
-  gulp.src('assets/js/app.js')
+  gulp.src('assets/js/main.js')
       .pipe(plugins.uglify())
       .pipe(gulp.dest('build/assets/js'));
   gulp.src('assets/stylesheets/css/*.css')
@@ -77,4 +58,4 @@ gulp.task('watch', function(){
 });
 
 gulp.task('publish', ['minify']);
-gulp.task('default', ['js', 'css', 'generateHTML','copyOtherAssets']);
+gulp.task('default', ['minify', 'js', 'css','copyOtherAssets']);
