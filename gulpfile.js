@@ -15,8 +15,6 @@ gulp.task('js', function(){
       ]))
       .pipe(plugins.concat('vendor.js'))
       .pipe(gulp.dest('dist/assets/js'))
-  gulp.src('assets/js/*.js')
-    .pipe(gulp.dest('dist/assets/js'))
 });
 
 gulp.task('css', function(){
@@ -32,7 +30,7 @@ gulp.task('css', function(){
       .pipe(gulp.dest('dist/assets/css'))
   gulp.src('assets/stylesheets/css/vendor/*.css')
       .pipe(plugins.concat('vendor.css'))
-      .pipe(gulp.dest('../'))
+      .pipe(gulp.dest('assets/stylesheets/css'))
       .pipe(gulp.dest('dist/assets/css'))
 })
 
@@ -44,10 +42,10 @@ gulp.task('copyOtherAssets', function(){
 });
 
 gulp.task('minify', function(){
-  gulp.src('assets/js/main.js')
+  gulp.src('dist/assets/js/main.js')
       .pipe(plugins.uglify())
-      .pipe(gulp.dest('build/assets/js'));
-  gulp.src('assets/stylesheets/css/*.css')
+      .pipe(gulp.dest('dist/assets/js'));
+  gulp.src('dist/assets/css/*.css')
       .pipe(plugins.uglify())
       .pipe(gulp.dest('dist/assets/css'));
 });
@@ -58,4 +56,4 @@ gulp.task('watch', function(){
 });
 
 gulp.task('publish', ['minify']);
-gulp.task('default', ['minify', 'js', 'css','copyOtherAssets']);
+gulp.task('default', ['js', 'css', 'copyOtherAssets']);
