@@ -75,14 +75,15 @@ function filterSidebar(specsCollection, searchText) {
         }
         specHeadingText = $(this).find("span:eq(0)").text().trim().toLowerCase();
         if (existsIn(tagMatches) || specHeadingText.indexOf(searchText.toLowerCase()) > -1 || searchText === '') {
-            $(this).show();
+            $(this).parent().show();
         } else {
-            $(this).hide();
+            $(this).parent().hide();
         }
     })
 }
 
 function resetSidebar() {
+    $('#searchSpecifications').val('');
     $('#listOfSpecifications li.spec-name').each(function() {
         $(this).show();
     });
@@ -230,7 +231,7 @@ var initializers = {
     "registerSearchAutocomplete": function() {
         new autoComplete({
             selector: 'input[id="searchSpecifications"]',
-            minChars: 0,
+            minChars: 1,
             source: function(term, suggest) {
                 term = term.toLowerCase();
                 var tagChoices = Object.keys(index.tags);
