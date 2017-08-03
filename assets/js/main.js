@@ -47,7 +47,7 @@ function filterSpecList(status) {
             $(this).hide();
         }
     });
-    var specs = $(".spec-list a").filter(function(){return $(this).children().first().is(':visible');})
+    var specs = $(".spec-list a").filter(function() { return $(this).children().first().is(':visible'); })
     filterSidebar(specs, $('#searchSpecifications').val().trim());
 }
 
@@ -58,9 +58,9 @@ function showFirstSpecContent() {
     }
 }
 
-function filterSidebar(specsCollection,searchText) {
+function filterSidebar(specsCollection, searchText) {
     if (!index) return;
-    tagMatches = index.tags[searchText];
+    tagMatches = index.specs[searchText];
     specsCollection.each(function() {
         var relPath = $(this).attr('href').split("/");
         var fileName = relPath[relPath.length - 1];
@@ -73,7 +73,7 @@ function filterSidebar(specsCollection,searchText) {
             });
             return arr.length > 0;
         }
-        specHeadingText = $(this).text().trim().toLowerCase();
+        specHeadingText = $(this).find("span:eq(0)").text().trim().toLowerCase();
         if (existsIn(tagMatches) || specHeadingText.indexOf(searchText.toLowerCase()) > -1 || searchText === '') {
             $(this).show();
         } else {
@@ -89,12 +89,12 @@ function resetSidebar() {
 }
 
 function openModal(e) {
-    $(this).next('.modal').css('display','block');
+    $(this).next('.modal').css('display', 'block');
     $('body').addClass('is-modal-open');
 }
 
 function closeModal() {
-    $('.modal').css('display','none');
+    $('.modal').css('display', 'none');
     $('body').removeClass('is-modal-open');
 }
 
@@ -116,7 +116,7 @@ var initializers = {
         if (sessionStorage.SearchText) {
             $('#searchSpecifications').val(sessionStorage.SearchText);
             var specs = $(".spec-list a");
-            filterSidebar(specs,sessionStorage.SearchText);
+            filterSidebar(specs, sessionStorage.SearchText);
         }
     },
     "attachScenarioToggle": function() {
@@ -125,16 +125,16 @@ var initializers = {
             $(this).addClass('selected');
             var tr = $(this).data('rowindex');
             $(".scenario-container").each(function() {
-                if (typeof $(this).data('tablerow') != 'undefined'){
+                if (typeof $(this).data('tablerow') != 'undefined') {
                     if ($(this).data('tablerow') === tr) { $(this).show(); } else { $(this).hide(); }
-                }else {
+                } else {
                     $(this).show();
                 }
             });
             $(".error-container").each(function() {
-                if (typeof $(this).data('tablerow') != 'undefined'){
+                if (typeof $(this).data('tablerow') != 'undefined') {
                     if ($(this).data('tablerow') === tr) { $(this).show(); } else { $(this).hide(); }
-                }else {
+                } else {
                     $(this).show();
                 }
             });
@@ -159,35 +159,37 @@ var initializers = {
             resetState();
             resetSidebar();
             sessionStorage.removeItem('FilterStatus');
-            var specs = $(".spec-list a").filter(function(){return $(this).children().first().is(':visible');})
+            var specs = $(".spec-list a").filter(function() { return $(this).children().first().is(':visible'); })
             filterSidebar(specs, $('#searchSpecifications').val().trim());
             showFirstSpecContent();
             $(this).addClass('active');
         });
     },
-     "registerModals": function() {
+    "registerModals": function() {
         $('.modal-link').click(openModal);
         $(document).keydown(function(e) {
-            if(e.keyCode == 27) closeModal();
+            if (e.keyCode == 27) closeModal();
         })
         $('.close').click(closeModal)
     },
     "registerTree": function() {
         $.jstree.defaults.core.themes.variant = "dark";
-        $('#jstree_demo_div').jstree({ 'core' : {
-            'data' : [
-                { "id" : "ajson1", "parent" : "#", "text" : "Simple root node" },
-                { "id" : "ajson2", "parent" : "#", "text" : "Root node 2" },
-                { "id" : "ajson21", "parent" : "ajson2", "text" : "Child 21" },
-                { "id" : "ajson3", "parent" : "#", "text" : "Root node 3" },
-                { "id" : "ajson31", "parent" : "ajson3", "text" : "Child 31" },
-                { "id" : "ajson32", "parent" : "ajson3", "text" : "Child 32" },
-                { "id" : "ajson311", "parent" : "ajson31", "text" : "Child 311" },
-                { "id" : "ajson321", "parent" : "ajson32", "text" : "Child 321" },
-                { "id" : "ajson4", "parent" : "#", "text" : "Root node 4" },
-                { "id" : "ajson5", "parent" : "#", "text" : "Root node 5" }
-            ]
-        } });
+        $('#jstree_demo_div').jstree({
+            'core': {
+                'data': [
+                    { "id": "ajson1", "parent": "#", "text": "Simple root node" },
+                    { "id": "ajson2", "parent": "#", "text": "Root node 2" },
+                    { "id": "ajson21", "parent": "ajson2", "text": "Child 21" },
+                    { "id": "ajson3", "parent": "#", "text": "Root node 3" },
+                    { "id": "ajson31", "parent": "ajson3", "text": "Child 31" },
+                    { "id": "ajson32", "parent": "ajson3", "text": "Child 32" },
+                    { "id": "ajson311", "parent": "ajson31", "text": "Child 311" },
+                    { "id": "ajson321", "parent": "ajson32", "text": "Child 321" },
+                    { "id": "ajson4", "parent": "#", "text": "Root node 4" },
+                    { "id": "ajson5", "parent": "#", "text": "Root node 5" }
+                ]
+            }
+        });
 
 
     },
@@ -228,7 +230,7 @@ var initializers = {
     "registerSearchAutocomplete": function() {
         new autoComplete({
             selector: 'input[id="searchSpecifications"]',
-            minChars: 1,
+            minChars: 0,
             source: function(term, suggest) {
                 term = term.toLowerCase();
                 var tagChoices = Object.keys(index.tags);
@@ -257,21 +259,21 @@ var initializers = {
         new Clipboard('.clipboard-btn');
     },
     "drawPieChart": function() {
-        if($("#pie-chart").length){
-        var results = $("#pie-chart").data("results").split(",").map(Number);
-        var total = Number($("#pie-chart").data("total"));
-        var paths = $("#pie-chart path.status")
-        var startAngle = 0;
-        for (i = 0; i < results.length; i++) {
-            coveredAngle = startAngle + results[i] * 360 / total;
-            if (total === results[i])
-                coveredAngle -= 0.05;
-            $(paths[i]).attr('d', describeArc(100, 75, 72, startAngle, coveredAngle));
-            $(paths[i]).next('path.shadow').attr('d', describeArc(100, 75, 75, startAngle, coveredAngle));
-            if (results[i] === 0 || total === results[i])
-                $(paths[i]).attr('stroke-width', 0);
-            startAngle = coveredAngle;
-        }
+        if ($("#pie-chart").length) {
+            var results = $("#pie-chart").data("results").split(",").map(Number);
+            var total = Number($("#pie-chart").data("total"));
+            var paths = $("#pie-chart path.status")
+            var startAngle = 0;
+            for (i = 0; i < results.length; i++) {
+                coveredAngle = startAngle + results[i] * 360 / total;
+                if (total === results[i])
+                    coveredAngle -= 0.05;
+                $(paths[i]).attr('d', describeArc(100, 75, 72, startAngle, coveredAngle));
+                $(paths[i]).next('path.shadow').attr('d', describeArc(100, 75, 75, startAngle, coveredAngle));
+                if (results[i] === 0 || total === results[i])
+                    $(paths[i]).attr('stroke-width', 0);
+                startAngle = coveredAngle;
+            }
         }
     }
 };
@@ -279,13 +281,13 @@ var initializers = {
 $(function() {
     $.each(initializers, function(k, v) { v(); });
 
-    $('#menu-icon').click(function(){
+    $('#menu-icon').click(function() {
         $(this).toggleClass('open');
         $("body").toggleClass('menu-is-active');
     });
 
-    $( window ).resize(function() {
-        if($( window ).width() > 1024) {
+    $(window).resize(function() {
+        if ($(window).width() > 1024) {
             $("body").removeClass('menu-is-active');
             $("#menu-icon").removeClass('open');
         }
