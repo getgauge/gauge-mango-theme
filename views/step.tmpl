@@ -29,7 +29,7 @@
   {{if .Messages}}
     <div class="message-container">
       <i class="fa fa-minus-square" aria-hidden="true"></i>
-      <div class="messages">
+      <div class="messages" {{if ( eq .Status "pass" ) }} style="display: none;" {{end}}>
         {{range .Messages}}<div class="step-message">{{. | encodeNewLine | parseMarkdown | sanitize}} </div>{{end}}
       </div>
     </div>
