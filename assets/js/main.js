@@ -100,6 +100,11 @@ function closeModal() {
 }
 
 var initializers = {
+    "initHighlightingOnLoad": function() {
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    },
     "initializeFilters": function() {
         if (sessionStorage.FilterStatus) {
             filterSpecList(sessionStorage.FilterStatus);

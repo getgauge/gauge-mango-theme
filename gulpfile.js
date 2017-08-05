@@ -9,7 +9,8 @@ gulp.task('js', function() {
             "jquery-3.1.0.min.js",
             "auto-complete.js",
             "clipboard.min.js",
-            "lightbox.js"
+            "lightbox.js",
+            "highlight.min.js"
         ]))
         .pipe(plugins.concat('vendor.js'))
         .pipe(gulp.dest('dist/assets/js'))
